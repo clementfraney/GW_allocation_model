@@ -10,7 +10,7 @@ Instructions:
     
 Download the folder 'GW_allocation_model' anywhere in your computer.
 
-Set the path of the folder where this python script is located in the variable "path_Model_folder".
+Set the path of the folder where the python model is located in the variable "path_Model_folder".
 Set the path of the folder where the solver is located in the variable "solverpath_exe".
 Set the name of the sover in the variable "solvername".
 
@@ -58,7 +58,7 @@ savepath = path_Model_folder + r'/Results'
 Catch='Watersheds'   # name differently if using different catchents
 Geo='Capital'  # name differently if using different catchents
 error_func='NSE'     # NSE, RMSE or r2 (the error function used for parametrizing the GW linear reservoir model)
-weeks = 1721 # Timesteps, maximum 1749 weeks  # 10 years = 521 weeks, 20 years = 1043 weeks, 30 years = 1565 weeks, 33 years = 1721 weeks
+weeks = 5 # Timesteps, maximum 1749 weeks  # 10 years = 521 weeks, 20 years = 1043 weeks, 30 years = 1565 weeks, 33 years = 1721 weeks
 
 # =============================================================================
 # Scenarii
@@ -105,7 +105,7 @@ if scenario == 2:
 
 os.chdir(path_Model_folder + '/Input data model/WB_' + Catch_Geo)
 
-ncatch=pd.read_csv(Catch_Geo+'_ID.csv')
+ncatch=np.array(Catchments['Catch_ID'])
 K_optim=pd.read_csv('K_optim_'+error_func+'.csv')
 
 inflow = np.empty((len(ncatch), len(ntimes))) # 1749 weeks of data, approx 33 years

@@ -4,6 +4,11 @@
 clefraney@gmail.com
 
 Updated: June 04 2025
+
+Instructions:
+
+Set the path of the folder where the python model is located in the variable "folder_path".    
+Run this script once.
 """ 
 
 import numpy as np

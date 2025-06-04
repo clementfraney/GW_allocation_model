@@ -4,6 +4,16 @@
 clefraney@gmail.com
 
 Updated: June 04 2025
+
+
+Instructions:
+
+Set the path of the folder where the python model is located in the variable "folder_path".    
+Run this script with the variable "process_WB" equal True at least once.
+
+You can run the script again with processs_WB = False if you want to parametrize the groundwater 
+linear reservoir with another error function (MSE, RMSE, NSE, r2).
+By default the error function that is used is 'NSE'.
 """
 
 import numpy as np
@@ -32,10 +42,11 @@ folder_path = r'F:\Data\s232484\GW_allocation_model' # CHANGE TO YOUR PATH
 
 Catch='Watersheds' # 'ID15' or 'Watersheds' or 'Test'
 Geo='Capital'  # 'Capital' or 'Western' or 'Sjaelland'
+Catch_Geo = Catch+'_'+Geo
  
 error_func='NSE' #MSE,RMSE,NSE,r2(coef of determination)
 calibration=1300 #1300 = 25 years of calibration and 8 years of validation 
-process_WB=False # process the WB data and export each to a CSV file, also get the min K value (just need to do it once)
+process_WB=True # process the WB data and export each to a CSV file, also get the min K value (just need to do it once)
 
 # =============================================================================
 # Path to the data
@@ -44,7 +55,7 @@ process_WB=False # process the WB data and export each to a CSV file, also get t
 raw_data_path = folder_path + '\Raw data\WB_Watersheds_Capital'
 input_data_path = folder_path + '\Input data model\WB_Watersheds_Capital'
 
-Catch_Geo = Catch+'_'+Geo
+
 name='WB_SZ_'
 
 catch_ID=pd.read_csv(raw_data_path + os.sep + Catch_Geo+'_ID.csv')
