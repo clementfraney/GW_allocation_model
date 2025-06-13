@@ -55,7 +55,7 @@ Catch_Geo = Catch + '_' + Geo
 # Scenarii
 # =============================================================================
 
-scenario = 0  # 0 = Baseline , 1 = Maximum abstraction capacity 2 , 2 = local water exchanges
+scenario = 1  # 0 = Baseline , 1 = Maximum abstraction capacity 2 , 2 = local water exchanges
 
 ind_2 = False
 if scenario == 1:
@@ -67,10 +67,10 @@ with open(savepath+ os.sep + 'Scenario_' + str(scenario) + '_' + str(weeks) + '_
     TIME,list_WSA,list_WW,list_WF,list_catch,list_year = pickle.load(file)
     
 with open(savepath+ os.sep + 'Scenario_' + str(scenario) + '_' + str(weeks) + '_weeks'  + '_decision_variables.pkl', 'rb') as file:
-    optimal_Decision, optimal_time, optimal_A_HH, optimal_A_Ind, optimal_A_PS, optimal_A_Agri, optimal_Storage_WW, optimal_Pump_WF, optimal_Pump_catch, optimal_Pump_GW_to_BF, optimal_Q_base, optimal_Send, optimal_Exchange, optimal_Supply_WW_WSA = pickle.load(file)
+    optimal_Decision, optimal_time, optimal_A_HH, optimal_A_Ind, optimal_A_PS, optimal_A_Agri, optimal_Storage_WW, optimal_Pump_WF, optimal_Pump_catch, optimal_Pump_GW_to_BF, optimal_Q_base, optimal_Send, optimal_Exchange, optimal_Supply_WW_WSA = pd.read_pickle(file)
     
 with open(savepath+ os.sep + 'Scenario_' + str(scenario) + '_' + str(weeks) + '_weeks'  + '_shadow_prices.pkl', 'rb') as file:
-    SP, SP_time, SP_wd_HH, SP_wd_Ind, SP_wd_PS, SP_wd_Agri, SP_wb_WW_Storage, SP_pumping_WF, SP_lin_res, SP_min_bf, SP_gw_ind_2, SP_wb_WW_Exchange = pickle.load(file)
+    SP, SP_time, SP_wd_HH, SP_wd_Ind, SP_wd_PS, SP_wd_Agri, SP_wb_WW_Storage, SP_pumping_WF, SP_lin_res, SP_min_bf, SP_gw_ind_2, SP_wb_WW_Exchange = pd.read_pickle(file)
 
 
 os.chdir(path_Model_folder + '/Input data model')
