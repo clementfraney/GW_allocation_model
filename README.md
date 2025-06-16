@@ -5,5 +5,6 @@ The topic of the master thesis is:
 
 The repository contains the groundwater allocation optimization model, in the python file: *GW_allocation_model.py*.
 The python script is using input data from the folders *Input data model* and *Shapefiles* and save results in the *Results* folder.
+Then the script *Plotting_results.py* is generating plots and maps with the results of the optimization model.
 
 The repository also contains a guidance document (*Guidance_catchments_definition.pdf*) for using the model with your own catchments if you wish to use different catchments than the ones I have used for my master thesis.
